@@ -1,5 +1,7 @@
 # Pro-grasser
-코테 준비하고 탈모 온 운동장에 잔디를 심어주자!!
+### 코테 준비하고 탈모 온 운동장에 잔디를 심어주자!!<br>
+![image](https://user-images.githubusercontent.com/33835900/152555539-3aa1009d-1a3a-4e70-9950-0f76ca88afcc.png) ![image](https://user-images.githubusercontent.com/33835900/152556558-e8e62e94-93bc-445b-b1b0-a6e4f0371829.png)
+
 
 ## Basic Rules
 - **화, 목 9시 meeting!**
