@@ -14,7 +14,7 @@
 ## Schedule
 ```
 - 2022/02/08(Tues) : 구현, 문자열
-- 2022/02/10(Thur) : 자료구조(Stack, Queue)
+- 2022/02/10(Thur) : 자료구조(Stack, Queue) - 1158번
 
 - 2022/02/15(Tues) : LinkedList, Tree
 - 2022/02/17(Thur) : 완전탐색
