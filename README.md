@@ -26,9 +26,9 @@
 1. 각자 주어진 폴더에 문제 주제(분류)에 맞는 패키지 생성 후 파일 업로드
 ex) minah/data_structure
 
-2. File Name : Solution_BOJ_번호_문제이름_난이도_작성자_시간(ms)
+2. File Name : Main_BOJ_번호_문제이름_난이도_작성자_시간(ms)
     - 특수문자가 안들어가는 경우에는 알잘딱하게 넣기
-ex) Solution_BOJ_1000_A+B_B5_신민아_100ms.java
+ex) Main_BOJ_1000_A+B_B5_신민아_100ms.java
 
 3. Commit Title : 분류_난이도_번호_문제이름_시간
 ex) 자료구조(스택)_S4_10828_스택_100ms
