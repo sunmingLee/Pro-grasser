@@ -4,7 +4,7 @@
 ## Basic Rules
 - **화, 목 9시 meeting!**
 - 화요일 문제 공유(목요일까지 공유 완료 필수)<br>
-	by @sjeonge @seungyeon38
+	by @sjeonge @sunmingLee @seungyeon38
 - 목요일 문제 공유(토요일까지 공유 완료 필수)<br>
  	by @minahshin @sdyoon94 @dlwotns1112
 - 문제는 백준 온라인 저지에서 가져오고 가급적 Silver 티어서부터 시작!
