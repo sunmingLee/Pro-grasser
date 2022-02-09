@@ -42,7 +42,7 @@ public class Solution_BOJ_18111_마인크래프트_S2_이승연_656ms {
 				for(int c=0; c<c_num; c++) {
 					int diff = ground[r][c] - h; // 지금 따지는 경우에의 높이와의 차이 
 					if(diff < 0) { // 더 적으면 -> 블록을 놔줘야함 
-						minus += -diff;
+						minus -= diff;
 					} else { // 더 많으면  -> 블록을 빼야함 
 						plus += diff;
 					}
