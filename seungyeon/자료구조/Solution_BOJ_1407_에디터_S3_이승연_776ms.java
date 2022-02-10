@@ -3,6 +3,7 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+
 /**
  * 한 줄로 된 간단한 에디터를 구현하려고 한다. 이 편집기는 영어 소문자만을 기록할 수 있는 편집기로, 최대 600,000글자까지 입력할 수 있다.
  * 이 편집기에는 '커서'라는 것이 있는데, 커서는 문장의 맨 앞(첫 번째 문자의 왼쪽), 문장의 맨 뒤(마지막 문자의 오른쪽), 또는 문장 중간 임의의 곳(모든 연속된 두 문자 사이)에 위치할 수 있다. 
@@ -24,44 +25,45 @@ public class Solution_BOJ_1407_에디터_S3_이승연_776ms {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
-		Stack<Character> l_stack = new Stack<Character>();
-		Stack<Character> r_stack = new Stack<Character>();
+		Stack<Character> l_stack = new Stack<Character>(); // 커서를 기준으로 왼쪽 스택 
+		Stack<Character> r_stack = new Stack<Character>(); // 커서를 기준으로 오른쪽 스택 
 		
 		String str = br.readLine();
 		
 		for(int i=0; i<str.length(); i++) {
-			l_stack.push(str.charAt(i));
+			l_stack.push(str.charAt(i)); // 처음 문자열의 문자들을 왼쪽 스택에 넣음. 
 		}
 		
-		int cmd_n = Integer.parseInt(br.readLine());
+		int cmd_n = Integer.parseInt(br.readLine()); // 명령어 개수 
 		
 		for(int i=0; i<cmd_n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			char cmd = st.nextToken().charAt(0); 
+			char cmd = st.nextToken().charAt(0); // 명령어의 첫 단어 'L','D','B','P'
 			
 			switch(cmd) {
-			case 'L':
-				if(!l_stack.isEmpty()) {
+			case 'L': // 커서 왼쪽으로 한 칸-> 왼쪽 맨끝(top)에 있는 원소 오른쪽으로 이동 (왼쪽에 아무것도 없으면 무시)
+				if(!l_stack.isEmpty()) { 
 					r_stack.push(l_stack.pop());
 				}
 				break;
-			case 'D':
+			case 'D': // 커서 오른쪽으로 한 칸-> 오른쪽 맨앞(top)에 있는 원소 왼쪽으로 이동 (오른쪽에 아무것도 없으면 무시)
 				if(!r_stack.isEmpty()) {
 					l_stack.push(r_stack.pop());
 				}
 				break;
-			case 'B':
+			case 'B': // 커서 왼쪽 문자 삭제-> 왼쪽 맨끝(top)에 있는 원소 삭제 (왼쪽에 아무것도 없으면 무시)
 				if(!l_stack.isEmpty()) {
 					l_stack.pop();
 				}
 				break;
-			case 'P':
-				char c = st.nextToken().charAt(0); 
+			case 'P': // 커서 왼쪽에 문자 추가-> 왼쪽 맨끝에 문자 추가
+				char c = st.nextToken().charAt(0);
 				l_stack.push(c);
 				break;
 			}
 		}
 		
+		// 왼쪽 스택+오른쪽 스택 출력  
 		while(!l_stack.isEmpty()) {
 			r_stack.push(l_stack.pop());
 		}
