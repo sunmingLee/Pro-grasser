@@ -32,8 +32,9 @@ ex) minah/data_structure
     - 특수문자가 안들어가는 경우에는 알잘딱하게 넣기
 ex) Main_BOJ_1000_A+B_B5_신민아_100ms.java
 
-3. Commit Title : 분류_난이도_번호_문제이름_시간
-ex) 자료구조(스택)_S4_10828_스택_100ms
+3. Commit Title : 기본값 그대로 사용
+ex) Create 자료구조(스택)_S4_10828_스택_100ms.java / Update 자료구조(스택)_S4_10828_스택_미완성.java
 
 4. Commit Contents(선택사항) : 자유롭게 작성 (특징, 봐줬으면 하는 코드 등)
+    - 미완성 시에는 가급적이면 어디서 막혔는지 content에 쓰면 이해하는 것에 도움이 될 것!
 ```
