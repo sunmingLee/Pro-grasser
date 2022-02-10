@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 /**
@@ -26,21 +25,17 @@ import java.util.StringTokenizer;
  * 입력되어 있는 문자열을 구하는 프로그램을 작성하시오. 단, 명령어가 수행되기 전에 커서는 문장의 맨 뒤에 위치하고 있다고 한다.
  *
  */
-public class Main_BOJ_1406_에디터_S3_이선민_ms {
+public class Main_BOJ_1406_에디터_S3_이선민_900ms {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		long start = System.currentTimeMillis();
-//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedReader br = new BufferedReader(new FileReader("C:\\SSAFY\\01_java\\BOJ\\src\\Stack\\input.txt"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		StringBuilder sb = new StringBuilder();
 		String s = br.readLine(); // 초기 문자열
-		int cursor = s.length(); // 현재 커서의 위치(문장의 맨 뒤)
-
-		// LinkedList에 초기 문자열을 담아줌
-		List<Character> list = new LinkedList<Character>();
-		for (int i = 0; i < s.length(); i++) {
-			list.add(s.charAt(i));
+		Stack<Character> left = new Stack<Character>(); // 커서 위치의 왼쪽 문자열
+		Stack<Character> right = new Stack<Character>(); // 커서 위치의 오른쪽 문자열
+		for (int i = 0; i < s.length(); i++) { // 명령어가 수행되기 전 커서의 위치는 문장의 맨뒤이므로
+			left.push(s.charAt(i));
 		}
 
 		int M = Integer.parseInt(br.readLine()); // 명령어의 개수
@@ -48,42 +43,40 @@ public class Main_BOJ_1406_에디터_S3_이선민_ms {
 			st = new StringTokenizer(br.readLine());
 			switch (st.nextToken()) {
 			case "L":
-				if (cursor == 0) { // 커서가 문장의 맨 앞이면 명령을 무시함
-					break;
+				if (!left.isEmpty()) { // 커서가 문장의 맨 앞이 아니면 명령수행
+					right.push(left.pop());
 				}
-				cursor--;
 				break;
 			case "D":
-				if (cursor == list.size()) { // 커서가 문장의 맨 뒤이면 명령을 무시함
-					break;
+				if (!right.isEmpty()) { // 커서가 문장의 맨 뒤가 아니면 명령수행
+					left.push(right.pop());
 				}
-				cursor++;
 				break;
 			case "B":
-				if (cursor == 0) { // 커서가 문장의 맨 앞이면 명령을 무시함
-					break;
+				if (!left.isEmpty()) { // 커서가 문장의 맨 앞이 아니면 명령수행
+					left.pop();
 				}
-				list.remove(--cursor);
 				break;
 			case "P":
 				char $ = st.nextToken().charAt(0); // 새로 추가할 문자
-				list.add(cursor++, $);
+				left.push($);
 				break;
 
 			default:
 				System.out.println("wrong command");
 				break;
 			} // end of switch
-			System.out.println(list);
 		} // end of for loop
-		for (int i = 0; i < list.size(); i++) {
-			sb.append(list.get(i));
+
+		// 커서를 맨 앞으로 옮겨서 결과 출력하기
+		while(!left.isEmpty()) {
+			right.push(left.pop());
+		}
+		while(!right.isEmpty()) {	
+			sb.append(right.pop());
 		}
 		sb.append("\n");
 		System.out.print(sb);
-		
-		long end = System.currentTimeMillis();
-		System.out.println("수행시간: " + (end - start) + " ms");
 	} // end of main
 
 } // end of class
