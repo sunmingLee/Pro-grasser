@@ -16,7 +16,7 @@
 - 2022/02/08(Tues) : 구현, 문자열 - 6550번(부분 문자열), 14503번(로봇청소기), 18111(마인크래프트)
 - 2022/02/10(Thur) : 자료구조(Stack, Queue) - 1158번(요세푸스 문제), 1874번(스택 수열), 1406(에디터)
 
-- 2022/02/15(Tues) : LinkedList, Tree
+- 2022/02/15(Tues) : LinkedList, Tree - 11725(트리의 부모 찾기)
 - 2022/02/17(Thur) : 완전탐색
 
 - 2022/02/22(Tues) : 탐욕알고리즘, 분할정복
@@ -33,7 +33,7 @@ ex) minah/data_structure
 ex) Main_BOJ_1000_A+B_B5_신민아_100ms.java
 
 3. Commit Title : 기본값 그대로 사용
-ex) Create 자료구조(스택)_S4_10828_스택_100ms.java / Update 자료구조(스택)_S4_10828_스택_미완성.java
+ex) Create Main_BOJ_1000_A+B_B5_신민아_100ms.java / Update Main_BOJ_1000_A+B_B5_신민아_100ms.java
 
 4. Commit Contents(선택사항) : 자유롭게 작성 (특징, 봐줬으면 하는 코드 등)
     - 미완성 시에는 가급적이면 어디서 막혔는지 content에 쓰면 이해하는 것에 도움이 될 것!
