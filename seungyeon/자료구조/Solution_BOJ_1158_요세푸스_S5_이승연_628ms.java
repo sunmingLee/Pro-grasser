@@ -35,9 +35,8 @@ public class Solution_BOJ_1158_요세푸스_S5_이승연_628ms {
 		}
 		
 		while(!queue.isEmpty()) {
-			for(int i=0; i<K-1; i++) {  // K번째를 찾기 위해서 (K-1)개를 빼고 뒤에 다시 넣어줌. 
-				int top = queue.poll();
-				queue.offer(top);
+			for(int i=1; i<K; i++) {  // K번째를 찾기 위해서 (K-1)개를 빼고 뒤에 다시 넣어줌. 
+				queue.offer(queue.poll());
 			}
 			sb.append(queue.poll()).append(", "); // K번째건 빼서 출력. 
 		}
