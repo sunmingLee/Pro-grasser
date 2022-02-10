@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
  * 단, 명령어가 수행되기 전에 커서는 문장의 맨 뒤에 위치하고 있다고 한다.
  */
 
-public class Solution_BOJ_1407_에디터_S3_이승연_776ms {
+public class Solution_BOJ_1407_에디터_S3_이승연_556ms {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
@@ -37,8 +37,12 @@ public class Solution_BOJ_1407_에디터_S3_이승연_776ms {
 		int cmd_n = Integer.parseInt(br.readLine()); // 명령어 개수 
 		
 		for(int i=0; i<cmd_n; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			char cmd = st.nextToken().charAt(0); // 명령어의 첫 단어 'L','D','B','P'
+// 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+// 			char cmd = st.nextToken().charAt(0); // 명령어의 첫 단어 'L','D','B','P'
+// 			StringTokenizer는 String split보다 빠른 것. 여기서 쓰면 200ms이상 느려짐. 계속해서 써야 할 때(?) 빠름. 
+			
+			String st = br.readLine();
+			char cmd = st.charAt(0); // 명령어의 첫 단어 'L','D','B','P'
 			
 			switch(cmd) {
 			case 'L': // 커서 왼쪽으로 한 칸-> 왼쪽 맨끝(top)에 있는 원소 오른쪽으로 이동 (왼쪽에 아무것도 없으면 무시)
@@ -57,8 +61,7 @@ public class Solution_BOJ_1407_에디터_S3_이승연_776ms {
 				}
 				break;
 			case 'P': // 커서 왼쪽에 문자 추가-> 왼쪽 맨끝에 문자 추가
-				char c = st.nextToken().charAt(0);
-				l_stack.push(c);
+				l_stack.push(st.charAt(2));
 				break;
 			}
 		}
