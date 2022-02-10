@@ -33,7 +33,7 @@ ex) minah/data_structure
 ex) Main_BOJ_1000_A+B_B5_신민아_100ms.java
 
 3. Commit Title : 기본값 그대로 사용
-ex) Create 자료구조(스택)_S4_10828_스택_100ms.java / Update 자료구조(스택)_S4_10828_스택_미완성.java
+ex) Create Main_BOJ_1000_A+B_B5_신민아_100ms.java / Update Main_BOJ_1000_A+B_B5_신민아_100ms.java
 
 4. Commit Contents(선택사항) : 자유롭게 작성 (특징, 봐줬으면 하는 코드 등)
     - 미완성 시에는 가급적이면 어디서 막혔는지 content에 쓰면 이해하는 것에 도움이 될 것!
