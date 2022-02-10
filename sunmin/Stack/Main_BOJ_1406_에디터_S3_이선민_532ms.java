@@ -25,11 +25,10 @@ import java.util.StringTokenizer;
  * 입력되어 있는 문자열을 구하는 프로그램을 작성하시오. 단, 명령어가 수행되기 전에 커서는 문장의 맨 뒤에 위치하고 있다고 한다.
  *
  */
-public class Main_BOJ_1406_에디터_S3_이선민_900ms {
+public class Main_BOJ_1406_에디터_S3_이선민_532ms {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
 		StringBuilder sb = new StringBuilder();
 		String s = br.readLine(); // 초기 문자열
 		Stack<Character> left = new Stack<Character>(); // 커서 위치의 왼쪽 문자열
@@ -40,25 +39,25 @@ public class Main_BOJ_1406_에디터_S3_이선민_900ms {
 
 		int M = Integer.parseInt(br.readLine()); // 명령어의 개수
 		for (int i = 0; i < M; i++) {
-			st = new StringTokenizer(br.readLine());
-			switch (st.nextToken()) {
-			case "L":
+			s = br.readLine();
+			switch (s.charAt(0)) {
+			case 'L':
 				if (!left.isEmpty()) { // 커서가 문장의 맨 앞이 아니면 명령수행
 					right.push(left.pop());
 				}
 				break;
-			case "D":
+			case 'D':
 				if (!right.isEmpty()) { // 커서가 문장의 맨 뒤가 아니면 명령수행
 					left.push(right.pop());
 				}
 				break;
-			case "B":
+			case 'B':
 				if (!left.isEmpty()) { // 커서가 문장의 맨 앞이 아니면 명령수행
 					left.pop();
 				}
 				break;
-			case "P":
-				char $ = st.nextToken().charAt(0); // 새로 추가할 문자
+			case 'P':
+				char $ = s.charAt(2); // 새로 추가할 문자
 				left.push($);
 				break;
 
@@ -69,10 +68,10 @@ public class Main_BOJ_1406_에디터_S3_이선민_900ms {
 		} // end of for loop
 
 		// 커서를 맨 앞으로 옮겨서 결과 출력하기
-		while(!left.isEmpty()) {
+		while (!left.isEmpty()) {
 			right.push(left.pop());
 		}
-		while(!right.isEmpty()) {	
+		while (!right.isEmpty()) {
 			sb.append(right.pop());
 		}
 		sb.append("\n");
