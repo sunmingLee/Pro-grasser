@@ -42,3 +42,25 @@ public class Main{
 
 }
 
+/** 다른 풀이 while 문 이하 시간초과 문제 else if 로 묶어서 해결  
+	while(queue.size()>1) {
+			if(cnt==M) {
+				sb.append(queue.poll()).append(", ");
+				cnt=1;
+			}else if(queue.offer(queue.poll())) {
+				cnt++;
+			}
+
+		}
+		
+		sb.append(queue.poll()).append('>');
+		System.out.println(sb);
+		
+		
+	}//end of main
+
+}
+
+
+*/
+
