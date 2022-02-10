@@ -13,7 +13,7 @@ public class Main_BOJ_1406_에디터_S3_양소정_520ms {
 		
 		String str = br.readLine();
 		int M = Integer.parseInt(br.readLine());
-    // 커서 기준 오른쪽 왼쪽 스택
+    		// 커서 기준 오른쪽 왼쪽 스택
 		Stack<String> leftSt = new Stack<String>();
 		Stack<String> rightSt = new Stack<String>();
 		
