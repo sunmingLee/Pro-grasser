@@ -21,19 +21,20 @@ public class Solution_BOJ_1874_스택수열_S3_이승연_336ms {
 		
 		int cur_n = 0;
 		for(int i=0; i<N; i++) {
-			int num = Integer.parseInt(br.readLine());
-			if(stack.isEmpty() || stack.peek()<num) {
-				while(cur_n != num) {
+			int input_n = Integer.parseInt(br.readLine());
+			// 스택이 비었거나 스택 top의 숫자가 input으로 들어온 숫자보다 작을 때 -> 전에 넣었던 숫자(cur_n)+1에서 input_n까지를 넣고 input_n(스택 top)을 뺌. 
+			if(stack.isEmpty() || stack.peek()<input_n) { 
+				while(cur_n != input_n) {
 					stack.push(++cur_n);
 					sb.append("+").append("\n");
 				}
 				stack.pop();
 				sb.append("-").append("\n");
 				
-			} else if(stack.peek()==num){
+			} else if(stack.peek()==input_n){ // 스택 top과 input_n이 같을 때 -> input_n(스택 top) 뺌. 
 				stack.pop();
 				sb.append("-").append("\n");
-			} else {
+			} else { // 위의 두 경우가 아니면 오류 -> 지금까지 들어온 얘들 다 빼고 "NO" 출력 
 				sb.setLength(0);
 				sb.append("NO");
 				break;
