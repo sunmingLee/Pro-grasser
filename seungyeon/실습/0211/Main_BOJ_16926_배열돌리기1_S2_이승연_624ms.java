@@ -31,11 +31,6 @@ public class Main_BOJ_16926_배열돌리기1_S2_이승연_624ms {
 		}
 		
 		arrRotate(N, M);
-		
-//		for(int i=1; i<=R; i++){
-//			arrRotate(N, M);
-//		}
-//		-> 1번밖에 안 돌아감 : 왜?
 
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
