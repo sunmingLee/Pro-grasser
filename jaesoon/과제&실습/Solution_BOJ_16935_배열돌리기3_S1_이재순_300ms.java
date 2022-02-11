@@ -1,11 +1,9 @@
-package com.ssafy.BOJ;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_BOJ_16935_배열돌리기3_S1_이재순_00ms {
+public class Solution_BOJ_16935_배열돌리기3_S1_이재순_300ms {
 	static String[][][] arr;
 	static int N,M;
 	public static void main(String[] args) throws IOException {
