@@ -56,29 +56,24 @@ public class Main_BOJ_16926_배열돌리기1_S2_이승연_624ms {
 			int r = cur_sp; 
 			int c = cur_sp; 
 			String temp = grid[r][c];
-			// ←
-			for(int i=1; i<c_num; i++) {
+			
+			for(int i=1; i<c_num; i++) { // ←
 				grid[r][c] = grid[r][c+1];
 				c++;
 			}	
-			// ↑
-			for(int i=1; i<r_num; i++) {
+			for(int i=1; i<r_num; i++) { // ↑
 				grid[r][c] = grid[r+1][c];
 				r++;
 			}
-			// →
-			for(int i=1; i<c_num; i++) {
+			for(int i=1; i<c_num; i++) { // →
 				grid[r][c] = grid[r][c-1];
 				c--;
 			}
-			// ↓ 
-			for(int i=1; i<r_num-1; i++) {
+			for(int i=1; i<r_num-1; i++) { // ↓ 
 				grid[r][c] = grid[r-1][c];
 				r--;
 			}
-			
 			grid[r][c] = temp;
-			
 		}
 		
 		cur_rotate++;
