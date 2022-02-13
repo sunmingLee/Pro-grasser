@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_11725_트리의부모찾기_S2_양소정_1968ms {
+public class Main_BOJ_11725_트리의부모찾기_S2_양소정_644ms {
 	private static int N; //노드의 개수
 	private static int[] parents; // 부모 노드 저장
 	private static boolean []visit; //방문 체크
