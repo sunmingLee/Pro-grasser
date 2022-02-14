@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Solution_BOJ_16926_배열돌리기1_S2_이선민_ms {
+public class Solution_BOJ_16926_배열돌리기1_S2_이선민_976ms {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,13 +23,14 @@ public class Solution_BOJ_16926_배열돌리기1_S2_이선민_ms {
 			}
 		}
 
-		int realR = R % ((N - 1 + M - 1) * 2); // 실제로 위치가 변하는 회전수
+		//int realR = R % ((N - 1 + M - 1) * 2); // 실제로 위치가 변하는 회전수
 		int r, c, inner;
 		int[][] answer = new int[N][M]; // 정답 배열
 		for (int i = 0; i < answer.length; i++) {
 			answer[i] = Arrays.copyOf(arr[i], arr[i].length);
 		}
-		for (int i = 0; i < realR; i++) {
+
+		for (int i = 0; i < R; i++) {
 			r = 0;
 			c = 0;
 			inner = 0;
@@ -37,7 +38,7 @@ public class Solution_BOJ_16926_배열돌리기1_S2_이선민_ms {
 				for (; r + 1 < N - inner / 2; r++) { // 하
 					answer[r + 1][c] = arr[r][c];
 				}
-				
+
 				for (; c + 1 < M - inner / 2; c++) { // 우
 					answer[r][c + 1] = arr[r][c];
 				}
@@ -53,21 +54,22 @@ public class Solution_BOJ_16926_배열돌리기1_S2_이선민_ms {
 				r++;
 				c++;
 				inner += 2;
-				
+
 			} // 한바퀴 회전 끝
 
+			// 최종결과에서 회전을 반복해야하므로 arr 배열에 정답 배열값을 담아줌
 			for (int j = 0; j < answer.length; j++) {
 				arr[j] = Arrays.copyOf(answer[j], answer[j].length);
 			}
-		}	// end of for(회전 완료)
-		
-		for (int[] is : answer) {
+		} // end of for(회전 완료)
+
+		for (int[] is : answer) { // 정답배열 출력
 			for (int a : is) {
 				sb.append(a).append(" ");
 			}
 			sb.append("\n");
 		}
-		
+
 		System.out.print(sb);
 	} // end of main
 
