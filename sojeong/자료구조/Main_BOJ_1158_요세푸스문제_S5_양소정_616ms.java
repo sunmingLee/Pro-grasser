@@ -42,16 +42,14 @@ public class Main{
 
 }
 
-
-/** 위 코드에 while 문 하위를 이렇게 작성하면 시간초과 뜨는데 이유를 모르겠네요..이유가 멀까요?
-   
- 		while(queue.size()>1) {
+/** 다른 풀이 while 문 이하 시간초과 문제 else if 로 묶어서 해결  
+	while(queue.size()>1) {
 			if(cnt==M) {
 				sb.append(queue.poll()).append(", ");
 				cnt=1;
+			}else if(queue.offer(queue.poll())) {
+				cnt++;
 			}
-			queue.offer(queue.poll());
-			cnt++;
 
 		}
 		
@@ -62,4 +60,7 @@ public class Main{
 	}//end of main
 
 }
+
+
 */
+
