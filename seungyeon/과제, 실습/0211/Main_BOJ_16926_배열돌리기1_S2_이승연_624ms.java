@@ -8,7 +8,7 @@ public class Main_BOJ_16926_배열돌리기1_S2_이승연_624ms {
 	private static int rotate_total_n; // 1회 회전에서 총 회전시켜야하는 사각형 수  
 	private static String[][] grid;
 	private static int R;
-  
+
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
@@ -31,6 +31,11 @@ public class Main_BOJ_16926_배열돌리기1_S2_이승연_624ms {
 		}
 		
 		arrRotate(N, M);
+		
+//		for(int i=1; i<=R; i++){
+//			arrRotate(N, M);
+//		}
+//		-> 1번밖에 안 돌아감 : 왜?
 
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
@@ -51,20 +56,23 @@ public class Main_BOJ_16926_배열돌리기1_S2_이승연_624ms {
 			int r = cur_sp; 
 			int c = cur_sp; 
 			String temp = grid[r][c];
-			
-			for(int i=1; i<c_num; i++) { // ←
+			// ←
+			for(int i=1; i<c_num; i++) {
 				grid[r][c] = grid[r][c+1];
 				c++;
 			}	
-			for(int i=1; i<r_num; i++) { // ↑
+			// ↑
+			for(int i=1; i<r_num; i++) {
 				grid[r][c] = grid[r+1][c];
 				r++;
 			}
-			for(int i=1; i<c_num; i++) { // →
+			// →
+			for(int i=1; i<c_num; i++) {
 				grid[r][c] = grid[r][c-1];
 				c--;
 			}
-			for(int i=1; i<r_num-1; i++) { // ↓ 
+			// ↓ 
+			for(int i=1; i<r_num-1; i++) {
 				grid[r][c] = grid[r-1][c];
 				r--;
 			}
