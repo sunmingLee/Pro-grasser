@@ -20,7 +20,7 @@ public class Main_BOJ_20299_3대측정_B2_이승연{
          int stu1 = Integer.parseInt(st.nextToken()); // 첫번째 동아리원의 개인 능력치 
          int stu2 = Integer.parseInt(st.nextToken()); // 두번째 동아리원의 개인 능력치 
          int stu3 = Integer.parseInt(st.nextToken()); // 세번째 동아리원의 개인 능력치 
-         if(stu1>=M && stu2>=M && stu3>=M && stu1+stu2+stu3 < S*3) { // 스마트 클럽 가입 조건을 만족하면 
+         if(stu1>=M && stu2>=M && stu3>=M && stu1+stu2+stu3 >= S) { // 스마트 클럽 가입 조건을 만족하면 
             available_club_num++; // 가입이 가능한 동아리 수 +1
             club_stu_list.add(stu1); // 가입한 학생의 능력치 추가
             club_stu_list.add(stu2); // 가입한 학생의 능력치 추가
