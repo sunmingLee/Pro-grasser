@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_1987_알파벳_G5_이승연_776ms {
+public class Main_BOJ_1987_알파벳_G4_이승연_776ms {
 	private static int R;
 	private static int C;
 	private static char[][] board;
