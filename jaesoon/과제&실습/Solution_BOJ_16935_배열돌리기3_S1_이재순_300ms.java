@@ -83,12 +83,10 @@ public class Solution_BOJ_16935_배열돌리기3_S1_이재순_300ms {
 	//상하 반전 메소드
 	private static void upsideDown() {
 		for (int k = 0; k < 4; k++) {
-			for (int j = 0; j < arr[k][0].length; j++) {
-				for (int i = 0; i < arr[k].length/2; i++) {
-					String temp = arr[k][i][j];
-					arr[k][i][j] = arr[k][arr[k].length-i-1][j];
-					arr[k][arr[k].length-i-1][j] = temp;
-				}
+			for (int i = 0; i < arr[k].length / 2; i++) {
+				String[] temp = arr[k][i];
+				arr[k][i] = arr[k][arr[k].length - i - 1];
+				arr[k][arr[k].length - i - 1] = temp;
 			}
 		}
 		String[][] temp = arr[0];
