@@ -1,8 +1,10 @@
+package algo_study;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_14501_퇴사_S3_이승연 {
+public class Main_BOJ_14501_퇴사_S3_이승연_76ms {
 	private static int N;
 	private static int[][] consult;
 	private static int max;
@@ -32,11 +34,6 @@ public class Main_BOJ_14501_퇴사_S3_이승연 {
 	}
 	
 	public static void calcMaxProfit(int idx) {
-		if(idx > N) {
-			max = Math.max(max, temp);
-			return; 
-		}
-		
 		for(int i=idx; i<=N; i++) {
 			if(i+consult[i][0] > N+1) continue;
 		
@@ -44,5 +41,11 @@ public class Main_BOJ_14501_퇴사_S3_이승연 {
 			calcMaxProfit(i+consult[i][0]);
 			temp -= consult[i][1];
 		}
+		
+//		if(idx > N) {
+		max = Math.max(max, temp);
+//			return; 
+//		}
+//		calcMaxProfit(N+1); // 가능한게 없으면 if문 안에를 안 들어가는 경우..
 	}
 }
