@@ -2,43 +2,46 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_SWEA_양팔저울 {
-	private static int[] w;
-	private static boolean[] visit;
-	private static int N;
-	private static int ans=0;
+public class Solution_SWEA_3234_준환이의양팔저울_D4_양소정_1602ms{
+
+	private static int ans;
 
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer st;
+		int[] w = null;
+		boolean[]visit = null;
 		int T = Integer.parseInt(br.readLine());
 		for (int tc = 1; tc <= T; tc++) {
-			N =Integer.parseInt(br.readLine());
+			int N =Integer.parseInt(br.readLine());
 			w = new int[N];
+			visit = new boolean[N];
+		
 			st = new StringTokenizer(br.readLine());
 			for (int i = 0; i < N; i++) {
 				w[i] =Integer.parseInt(st.nextToken());
 				
 			}
-			
-			visit = new boolean[N];
+			ans = 0;
 			check(0,w,visit,0,0);
-			sb.append("#").append(tc).append(" ").append(ans);
+			sb.append("#").append(tc).append(" ").append(ans).append("\n");
+			
 			
 		}//end of tc
+		System.out.println(sb);
 		
 	}//end of main
 
 	private static void check(int cnt, int[] w, boolean[] visit, int l, int r) {
-	
-		if(cnt == N) {
+		
+		if(cnt == w.length) {
 			ans++;
 			return;
 		}
 		
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < w.length; i++) {
 			if(visit[i]) continue; 
 			visit[i] =true;
 			if(l >= r + w[i]) {//l값이 다음값 더한것보다 크면
