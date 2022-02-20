@@ -29,7 +29,7 @@ public class Main_BOJ_2437_저울_G3_이선민_88ms {
 
 		long sum = 1; // 가장 적은 무게추가 1보다 클 경우 1을 만들수 없음
 		for (int i = 0; i < weight.length; i++) {
-			if (sum < weight[i]) {
+			if (sum < weight[i]) { // 현재까지 합한 무게추가 다음 무게추의 무게를 만들수 없다면
 				break;
 			}
 			sum += weight[i];
