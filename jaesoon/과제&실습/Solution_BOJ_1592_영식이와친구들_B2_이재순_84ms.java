@@ -21,7 +21,7 @@ public class Solution_BOJ_1592_영식이와친구들_B2_이재순_84ms {
 					return;
 				}
 				ans++;
-				break;
+				break; 
 			default:
 				idx = (idx-(L-N))%N;
 				if (++arr[idx]==M) {
