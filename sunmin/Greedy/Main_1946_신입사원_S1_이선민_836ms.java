@@ -19,37 +19,32 @@ import java.util.StringTokenizer;
  * 작성하시오.
  *
  */
-public class Main_1946_신입사원_S1_이선민_3092ms {
+public class Main_1946_신입사원_S1_이선민_836ms {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		StringBuilder sb = new StringBuilder();
-		
+
 		int T = Integer.parseInt(br.readLine()); // 테스트케이스의 개수(1 ≤ T ≤ 20)
-		int[][] grade;
+		int[] grade;
 		for (int test_case = 1; test_case <= T; test_case++) {
 			int N = Integer.parseInt(br.readLine()); // 지원자의 숫자(1 ≤ N ≤ 100,000)
-			grade = new int[N][2]; // 지원자의 1차, 2차 성적
-			for (int i = 0; i < grade.length; i++) {
+			grade = new int[N + 1]; // 지원자의 성적(인덱스가 1차 성적, 안의 값이 2차 성적)
+			for (int i = 1; i <= N; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
-				grade[i][0] = Integer.parseInt(st.nextToken()); // 1차 성적
-				grade[i][1] = Integer.parseInt(st.nextToken()); // 2차 성적
+				int grade1 = Integer.parseInt(st.nextToken()); // 1차 성적
+				int grade2 = Integer.parseInt(st.nextToken()); // 2차 성적
+				
+				grade[grade1] = grade2;
 			}
 
-			Arrays.sort(grade, new Comparator<int[]>() {
-				@Override
-				public int compare(int[] o1, int[] o2) {
-					return Integer.compare(o1[0], o2[0]); // 1차 성적의 오름차순으로 정렬
-				}
-			});
-
-			int ans = 1;	// 1차 성적 1등인 사람 미리 더해줌 
-			int min = grade[0][1]; // 2차 성적 중 최소값
+			int ans = 1; // 1차 성적 1등인 사람 미리 더해줌
+			int min = grade[1]; // 2차 성적 중 최소값
 			for (int i = 1; i < grade.length; i++) {
-				if (grade[i][1] < min) {
+				if (grade[i] < min) {
 					ans++;
-					min = grade[i][1];	// 최소값 갱신
+					min = grade[i]; // 최소값 갱신
 				}
 			}
 
