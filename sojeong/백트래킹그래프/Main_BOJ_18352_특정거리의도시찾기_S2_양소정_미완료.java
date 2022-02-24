@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 
-//인접리스트로 풀면 메모리초과. 테케는 맞지만,, 틀림
+//인접행렬로 풀면 메모리초과. 테케는 맞지만,, 틀림
 public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
 	static class Node{
 			
