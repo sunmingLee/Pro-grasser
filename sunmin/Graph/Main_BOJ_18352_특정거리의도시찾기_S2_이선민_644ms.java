@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  * 작성하시오. 또한 출발 도시 X에서 출발 도시 X로 가는 최단 거리는 항상 0이라고 가정한다.
  *
  */
-public class Main_BOJ_18352_특정거리의도시찾기_S2_이선민_936ms {
+public class Main_BOJ_18352_특정거리의도시찾기_S2_이선민_644ms {
 
 	static StringBuilder sb = new StringBuilder();
 
@@ -75,6 +75,10 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_이선민_936ms {
 
 		while (!queue.isEmpty()) {
 			int current = queue.poll();
+			
+			if (visited[current] == K) {	// 원하는 거리에 있는 도시를 찾았다면 search 빠져나오기
+				return;
+			}
 
 			// current 정점의 인접정점 처리(단, 방문하지 않은 인접정점만)
 			for (Node temp = adjList[current]; temp != null; temp = temp.link) {
@@ -83,6 +87,7 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_이선민_936ms {
 					visited[temp.vertex] = visited[current] + 1; // 출발 도시로부터 현재 정점까지의 거리 +1을 해준게 새로 탐색할 정점의 깊이
 				}
 			}
+
 		}
 
 	} // end of search
