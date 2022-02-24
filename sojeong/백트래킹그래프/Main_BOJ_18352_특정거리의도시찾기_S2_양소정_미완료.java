@@ -68,12 +68,10 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
 				
 			}
 			
-			
 			int size = q.size();
 			for (int i = 0; i < size ; i++) {
 				
 				start= q.poll();
-			
 				
 				for (Node temp =adjList[start]; temp != null; temp = temp.link) {
 					
@@ -83,8 +81,7 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
 					}
 				}
 			}
-			cnt++;
-			
+			cnt++;		
 		}
 	
 	System.out.println("-1");
