@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Solution_BOJ_1753_최단경로_G5_이재순_600ms {
+public class Solution_BOJ_1753_최단경로_G5_이재순_600ms { 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
