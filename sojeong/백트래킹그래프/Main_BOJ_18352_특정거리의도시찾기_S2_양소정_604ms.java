@@ -3,12 +3,13 @@ package 백트래킹그래프;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-//인접행렬로 풀면 메모리초과. 테케는 맞지만,, 틀림
-public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
+public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정_604ms {
 	static class Node{
 			
 			int vertex;
@@ -24,7 +25,6 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
 	private static int N,M,K,X;
 	private static int[][] arr;
 	private static int cnt;
-	private static StringBuilder sb = new StringBuilder();
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -45,10 +45,9 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
 		
 		bfs(adjList,X);
 		
-		//sb 역순출력
-		sb.setLength(sb.length()-1);
-		sb.reverse();
-		System.out.println(sb);
+		
+		
+		
 	}
 
 	private static void bfs(Node[] adjList,int start) {
@@ -60,9 +59,16 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
 		
 		while(!q.isEmpty()) {	
 			if(cnt == K) {
-				while(!q.isEmpty()) {
-					sb.append(q.poll()).append("\n");		
-				}	
+				int size =q.size();
+				int []ans = new int[size];
+				//다른풀이 pq에 넣어서 출력해도됨
+				for (int i = 0; i < size; i++)
+					ans[i] = q.poll();
+				Arrays.sort(ans);
+				StringBuilder sb = new StringBuilder();
+				for (int i : ans)
+					sb.append(i).append("\n");
+				System.out.println(sb.toString());
 				return;	
 			}
 		
@@ -70,6 +76,7 @@ public class Main_BOJ_18352_특정거리의도시찾기_S2_양소정 {
 			for (int i = 0; i < size ; i++) {
 				
 				start= q.poll();
+				
 					
 				for (Node temp =adjList[start]; temp != null; temp = temp.link) {
 					
