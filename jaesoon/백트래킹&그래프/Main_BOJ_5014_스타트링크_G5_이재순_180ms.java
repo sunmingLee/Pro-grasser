@@ -1,76 +1,44 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayDeque;
-import java.util.PriorityQueue;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_18352_특정거리의도시찾기_S2_이재순_640ms {
+public class Main_BOJ_5014_스타트링크_G5_이재순_180ms {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());//2 ≤ N ≤ 300,000
-		int M = Integer.parseInt(st.nextToken());//1 ≤ M ≤ 1,000,000
-		int K = Integer.parseInt(st.nextToken());//1 ≤ K ≤ 300,000
-		int X = Integer.parseInt(st.nextToken());//1 ≤ X ≤ N
-		Node[] nodes = new Node[N+1];//단방향 도로 정보가 담긴 나라의 배열
-		//배열 초기화
-		for (int i = 0; i < M; i++) {
-			st = new StringTokenizer(br.readLine());
-			int temp = Integer.parseInt(st.nextToken());
-			nodes[temp] = new Node(Integer.parseInt(st.nextToken()), nodes[temp]);
+		int F = Integer.parseInt(st.nextToken())+1;// 1 ≤ S, G ≤ F ≤ 1000000
+		int S = Integer.parseInt(st.nextToken());// 1 ≤ S ≤ F ≤ 1000000
+		int G = Integer.parseInt(st.nextToken());// 1 ≤ G ≤ F ≤ 1000000
+		int U = Integer.parseInt(st.nextToken());// 0 ≤ D ≤ 1000000
+		int D = Integer.parseInt(st.nextToken());// 0 ≤ U ≤ 1000000
+		int[] cnt = new int[F];//해당층에 도착하기 위한 최소 이동 횟수+1을 저장하는 배열 
+		Queue<Integer> q = new LinkedList<Integer>();//탐색할 층들을 저장하는 큐(BFS)
+		q.add(S);//시작점 추가
+		cnt[S] = 1;//시작층 이동횟수 초기화 (0으로 하고 시작하면 방문하지 않은 층과 똑같아서 문제 생김)
+		if (S == G) {//시작층과 목표층이 같을경우 체크
+			System.out.println(0);
+			return;
 		}
-		boolean[] visited = new boolean[N+1];//방문체크 배열
-		Queue<Integer> q = new ArrayDeque<Integer>();
-		q.add(X);//시작지점 추가
-		visited[X]=true;//시작지점 방문체크
-		int depth = 0;
-		PriorityQueue<Integer> ans = new PriorityQueue<Integer>();//정답을 정렬하기위한 우선순위큐
-		while (!q.isEmpty()) {//큐가 빌때까지 진행
-			depth++;
-			int qSize = q.size();
-			if (depth == K) {//거리가 K가 될때 진행
-				for (int j = 0; j < qSize; j++) {//depth거리를 다 탐색할때까지 진행
-					int cur = q.poll();//현재 나라의 idx
-					for (Node curNode = nodes[cur] ; curNode != null; curNode = curNode.next) {//더이상 연결된 곳이 없을때까지 진행
-						if (!visited[curNode.idx]) {//방문한 적이 없는 나라라면 진행
-							visited[curNode.idx]=true;//방문체크
-							ans.offer(curNode.idx);//정답에 추가
-						}
-					}
-				}
-				break;
+		//bfs진행
+		while (!q.isEmpty()) {//큐가 비는 상황 -> 더이상 새로운층이 존재하지 않음
+			int cur = q.poll();//현재 층 
+			int up = cur + U;//위로 이동했을때의 층
+			int down = cur - D;//아래로 이동했을때의 층 
+			if (up == G || down == G) {//목표층으로 이동할수 있으면 진행
+				System.out.println(cnt[cur]);//출력후 종료
+				return;
 			}
-			//거리가 K보다 작을 때 진행 구조는 위와 같음 큐가 출력을 위한 우선순위 큐인지 일반 큐인지만 다름
-			for (int j = 0; j < qSize; j++) {
-				int cur = q.poll();
-				for (Node curNode = nodes[cur] ; curNode != null; curNode = curNode.next) {
-					if (!visited[curNode.idx]) {
-						visited[curNode.idx]=true;
-						q.offer(curNode.idx);//이부분이 다름, 다음 탐색할 나라로 추가
-					}
-				}
-				
+			if (up < F&&cnt[up]==0) {//존재하는 층이고 새로운 층이라면 진행
+				cnt[up] = cnt[cur]+1;//최소 이동 횟수+1 저장
+				q.offer(up);
+			}
+			if (down > 0&&cnt[down]==0) {//존재하는 층이고 새로운 층이라면 진행
+				cnt[down] = cnt[cur]+1;//최소 이동 횟수+1 저장
+				q.offer(down);
 			}
 		}
-		if (ans.isEmpty()) {//정답 큐가 비었다면 진행
-			System.out.println(-1);
-		}else {
-			//출력
-			StringBuilder sb = new StringBuilder();
-			int size = ans.size();
-			for (int i = 0; i < size; i++) {
-				sb.append(ans.poll()).append("\n");
-			}
-			System.out.println(sb);
-		}
-	}
-	static class Node {
-		int idx;
-		Node next;
-		public Node(int idx, Node next) {
-			this.idx = idx;
-			this.next = next;
-		}
+		System.out.println("use the stairs");//while문에서 목표층에 도달하지 못하였으므로 불가능
 	}
 }
