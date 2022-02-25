@@ -35,7 +35,7 @@ public class Main_BOJ_5014_스타트링크_G5_양소정_184ms {
 
 				}
 				int up = now + U;
-				if (up <= F  && !visit[upa]) {
+				if (up <= F  && !visit[up]) {
 					visit[up] = true;
 					q.offer(up);
 				}
