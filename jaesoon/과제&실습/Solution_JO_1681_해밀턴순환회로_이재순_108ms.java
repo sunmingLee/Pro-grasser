@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_JO_1681_해밀턴순환회로_이재순_135ms {
+public class Solution_JO_1681_해밀턴순환회로_이재순_108ms {
 	static Node[] nodes;
 	private static int[] toCompany;
 	static int ans= Integer.MAX_VALUE;
@@ -41,12 +41,12 @@ public class Solution_JO_1681_해밀턴순환회로_이재순_135ms {
 			ans = Math.min(ans, sumWeight+toCompany[cur]);//ans갱신
 			return;
 		}
-		Node testnode = nodes[cur];
-		do {
-			if ((flag&1<<testnode.vertex)==0) {//이동한적이 없는 노드라면 진행
-				findRoute(testnode.vertex, flag|1<<testnode.vertex, endFlag, sumWeight+testnode.weight);//재귀
+		for (Node node = nodes[cur]; node!=null;node = node.next) {
+			if ((flag&1<<node.vertex)==0) {//이동한적이 없는 노드라면 진행
+				findRoute(node.vertex, flag|1<<node.vertex, endFlag, sumWeight+node.weight);//재귀
 			}
-		}while((testnode = testnode.next)!=null);//더이상 이동할수 있는 곳이 없다면 나가기
+		}
+		
 	}
 }
 /**
