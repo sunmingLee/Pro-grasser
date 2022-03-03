@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_1238_파티_G3_이선민_1508ms {
+public class Main_BOJ_1238_파티_G3_이선민_200ms {
 
 	static class Vertex implements Comparable<Vertex> {
 		int no; // 마을번호
@@ -46,18 +46,10 @@ public class Main_BOJ_1238_파티_G3_이선민_1508ms {
 		int[] go = new int[N + 1]; // 각자 마을에서 모이기로 한 마을까지의 최소거리
 		int[] back = new int[N + 1]; // 출발지에서 자신으로 오는 최소거리
 		Arrays.fill(back, Integer.MAX_VALUE); // 직접 갈 수 없는 마을도 0으로 표기되어있기때문에 Integer.MAX_VALUE값으로 초기화
+		Arrays.fill(go, Integer.MAX_VALUE);
 
-		for (int i = 1; i <= N; i++) { // 각자 마을에도 모이기로 한 마을까지의 최소 거리 계산
-			if (i == X) {
-				continue;
-			}
-			int[] temp = new int[N + 1]; // dijkstra2 돌릴때마다 출발지가 바뀌므로 임시 배열을 사용
-			Arrays.fill(temp, Integer.MAX_VALUE);
-			dijkstra2(N, X, i, temp, adjMatrix);
-			go[i] = temp[X]; // 자기 마을에서 모이기로 한 마을까지의 최소 거리 저장
-		}
-
-		dijkstra(N, X, back, adjMatrix); // 모이기로 한 마을에서 각자 마을까지의 최소 거리 계산
+		dijkstraGo(N, X, go, adjMatrix);	
+		dijkstraBack(N, X, back, adjMatrix); // 모이기로 한 마을에서 각자 마을까지의 최소 거리 계산
 
 		int ans = 0; // 왕복 시 가장 오래 걸린 시간
 		for (int i = 1; i <= N; i++) {
@@ -67,9 +59,9 @@ public class Main_BOJ_1238_파티_G3_이선민_1508ms {
 	} // end of main
 
 	/**
-	 * 모이기로 한 마을에서 자기 마을까지 최소거리 계산
+	 * 자기 마을에서 모이기로 한 마을까지의 최소거리 계산
 	 */
-	private static void dijkstra(int N, int start, int[] distance, int[][] adjMatrix) {
+	private static void dijkstraGo(int N, int start, int[] distance, int[][] adjMatrix) {
 		boolean[] visited = new boolean[N + 1]; // 최소비용 확정되었으면 true
 		PriorityQueue<Vertex> pQueue = new PriorityQueue<Vertex>();
 
@@ -84,6 +76,35 @@ public class Main_BOJ_1238_파티_G3_이선민_1508ms {
 			}
 			visited[current.no] = true; // 최소비용 확정된 정점
 
+			// 2단계 : 선택된 정점을 경유지로 하여 아직 최소비용이 확정되지 않은 다른 정점의 최소비용을 고려
+			for (int i = 1; i <= N; i++) {
+				if (!visited[i] && adjMatrix[i][current.no] != 0
+						&& distance[i] > distance[current.no] + adjMatrix[i][current.no]) { // 경유해 오는게 직접비용보다 작다면
+					distance[i] = distance[current.no] + adjMatrix[i][current.no];
+					pQueue.offer(new Vertex(i, distance[i]));
+				}
+			}
+		}
+	} // end of dijkstra
+	
+	/**
+	 * 모이기로 한 마을에서 자기 마을까지 최소거리 계산
+	 */
+	private static void dijkstraBack(int N, int start, int[] distance, int[][] adjMatrix) {
+		boolean[] visited = new boolean[N + 1]; // 최소비용 확정되었으면 true
+		PriorityQueue<Vertex> pQueue = new PriorityQueue<Vertex>();
+		
+		distance[start] = 0; // 시작마을 0으로
+		pQueue.offer(new Vertex(start, distance[start]));
+		
+		while (!pQueue.isEmpty()) {
+			// 1단계 : 최소비용이 확정되지 않은 정점 중 최소비용의 정점 선택
+			Vertex current = pQueue.poll();
+			if (visited[current.no]) { // 현재 정점이 이미 최소비용이 확정된 경우,
+				continue;
+			}
+			visited[current.no] = true; // 최소비용 확정된 정점
+			
 			// 2단계 : 선택된 정점을 경유지로 하여 아직 최소비용이 확정되지 않은 다른 정점의 최소비용을 고려
 			for (int i = 1; i <= N; i++) {
 				if (!visited[i] && adjMatrix[current.no][i] != 0
@@ -94,38 +115,5 @@ public class Main_BOJ_1238_파티_G3_이선민_1508ms {
 			}
 		}
 	} // end of dijkstra
-
-	/**
-	 * 모이기로 한 마을까지 가는 최소거리 계산
-	 */
-	private static void dijkstra2(int N, int X, int start, int[] distance, int[][] adjMatrix) {
-		boolean[] visited = new boolean[N + 1]; // 최소비용 확정되었으면 true
-		PriorityQueue<Vertex> pQueue = new PriorityQueue<Vertex>();
-
-		distance[start] = 0; // 시작마을 0으로
-		pQueue.offer(new Vertex(start, distance[start]));
-
-		while (!pQueue.isEmpty()) {
-			// 1단계 : 최소비용이 확정되지 않은 정점 중 최소비용의 정점 선택
-			Vertex current = pQueue.poll();
-			if (current.no == X) { // 모이기로한 마을에 도착하면 탐색 종료
-				return;
-			}
-
-			if (visited[current.no]) { // 현재 정점이 이미 최소비용이 확정된 경우,
-				continue;
-			}
-			visited[current.no] = true; // 최소비용 확정된 정점
-
-			// 2단계 : 선택된 정점을 경유지로 하여 아직 최소비용이 확정되지 않은 다른 정점의 최소비용을 고려
-			for (int i = 1; i <= N; i++) {
-				if (!visited[i] && adjMatrix[current.no][i] != 0
-						&& distance[i] > distance[current.no] + adjMatrix[current.no][i]) { // 경유해 오는게 직접비용보다 작다면
-					distance[i] = distance[current.no] + adjMatrix[current.no][i];
-					pQueue.offer(new Vertex(i, distance[i]));
-				}
-			}
-		}
-	} // end of dijkstra2
 
 } // end of class
