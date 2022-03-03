@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_10158_개미_S4_이승연 {
+public class Main_BOJ_10158_개미_S4_이승연_80ms {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -19,19 +19,21 @@ public class Main_BOJ_10158_개미_S4_이승연 {
 		int dir_w = 1;
 		int dir_h = 1; 
 	
-		for(int i=0; i<t; i++) {
+		int w_t = t % (2*w);
+		int h_t = t % (2*h);
+		
+		for(int i=0; i<w_t; i++) {
 			p += dir_w;
-			q += dir_h;
 			
 			if(p == 0 || p == w) {
-				if(q == 0 || q == h) {
-					dir_w *= -1;
-					dir_h *= -1;					
-				} else {
-					dir_w *= -1;
-				}
-			} 
-			else if(q == 0 || q == h) {
+				dir_w *= -1;
+			}
+		}
+		
+		for(int i=0; i<h_t; i++) {
+			q += dir_h;
+			
+			if(q == 0 || q == h) {
 				dir_h *= -1;
 			}
 		}
