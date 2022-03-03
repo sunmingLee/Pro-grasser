@@ -1,10 +1,12 @@
+package class4;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_1167_트리의지름_G3_이승연_808ms {
+public class Main_BOJ_1167_트리의지름_G3_이승연_784ms {
 	static class Edge{
 		int to; 
 		int distance;
@@ -65,10 +67,11 @@ public class Main_BOJ_1167_트리의지름_G3_이승연_808ms {
 			max_node = from; 
 		}
 		
-		for(Edge e: edgeAdjList[from]) {
-			if(!visited[e.to]) {
-				visited[e.to] = true; 
-				dfs(edgeAdjList, e.to, distance+e.distance);
+//		for(Edge e: edgeAdjList[from]) {
+		for(int i=0, size=edgeAdjList[from].size(); i<size; i++) {
+			if(!visited[edgeAdjList[from].get(i).to]) {
+				visited[edgeAdjList[from].get(i).to] = true; 
+				dfs(edgeAdjList, edgeAdjList[from].get(i).to, distance+edgeAdjList[from].get(i).distance);
 //				visited[e.to] = false; 
 			}
 		}
