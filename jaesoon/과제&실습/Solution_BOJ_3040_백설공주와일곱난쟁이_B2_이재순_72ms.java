@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Arrays;
 
 public class Solution_BOJ_3040_백설공주와일곱난쟁이_B2_이재순_72ms {
 	public static void main(String[] args) throws IOException {
@@ -14,6 +14,7 @@ public class Solution_BOJ_3040_백설공주와일곱난쟁이_B2_이재순_72ms 
 			dwarfs[i] = Integer.parseInt(br.readLine()); //난쟁이의 숫자 입력
 			sum+=dwarfs[i]; //난쟁이의 숫자 누적
 		}
+		Arrays.sort(dwarfs);
 		int target = sum -100;//합이 100인 7명이 진짜 난쟁이 이므로 (전체합-100) = (가짜난쟁이 두명의 합)= 타겟 합으로 설정함
 		sum = 0; //가짜난쟁이 판별을 위한 누적합으로 재사용
 loop:	for (int i = 0; i < 9; i++) {//난쟁이의 숫자 9만큼 반복
