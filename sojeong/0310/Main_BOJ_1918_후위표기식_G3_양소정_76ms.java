@@ -8,47 +8,45 @@ import java.util.Stack;
 반례 A*B+C+D+E*F*G+E 
 답 AB*C+D+EF*G*+E+   
 
-조심할 것 , ***(///)연속으로 나오는 경우 
 while문 돌릴때 EmptyStack 먼저 검사
 */
-public class Main_BOJ_1918_후위표기식_G3_양소정_88ms{
+public class Main_BOJ_1918_후위표기식_G3_양소정_76ms{
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str = br.readLine(); //입력
 		StringBuilder sb = new StringBuilder();
 		Stack<Character> st = new Stack<Character>();
-		int f=0;
 	
-		char arr[] = new char[str.length()];
-		for (int i = 0; i < str.length(); i++) {
-			arr[i] = str.charAt(i);
-			if(arr[i] =='(') {
-				st.push('0');
+	
+		for (char arr: str.toCharArray()) {
+			
+			if(arr =='(') {
+				st.push('0'); //괄호 0값 stack에 넣어서 구분
 				continue;
 			}
-			if(arr[i]>='A' && arr[i]<='Z') {
-				sb.append(arr[i]);
-			}else if(arr[i] ==')'){
+			if(arr>='A' && arr<='Z') {  //피연산자 바로 sb에 저장 -피연산자 pop하는 시점만 계산하면 됨
+				sb.append(arr);
+			}else if(arr ==')'){
 	
-				while(st.peek()!='0') {
+				while(st.peek()!='0') { // 괄호 구분 '0' 나올때 까지 pop
 					sb.append(st.pop());
 				}
-				st.pop();
+				st.pop(); // 괄호 구분 '0' 날리기
 					
 			}else {	
-				if(!st.isEmpty() && (arr[i]=='+' || arr[i]=='-')) {
-					while(!st.isEmpty() && st.peek()!='0') {
+				if(!st.isEmpty() && (arr=='+' || arr=='-')) { //연산자가 + 또는 -인 경우
+					while(!st.isEmpty() && st.peek()!='0') { 
 						sb.append(st.pop());
 					}
 			
-				}
-				if(!st.isEmpty() && (arr[i]=='*' || arr[i]=='/')) {
+				} 
+				if(!st.isEmpty() && (arr=='*' || arr=='/')) { //연산자가 * 또는 /인 경우  -
 					while(!st.isEmpty() &&st.peek()!='0' &&(st.peek()=='*' ||st.peek()=='/')) {
 						sb.append(st.pop());
 					}
 						
 				}
-				st.push(arr[i]);
+				st.push(arr);
 			}
 			
 		}
