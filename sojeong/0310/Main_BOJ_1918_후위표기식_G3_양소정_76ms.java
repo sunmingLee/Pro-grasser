@@ -24,7 +24,7 @@ public class Main_BOJ_1918_후위표기식_G3_양소정_76ms{
 				st.push('0'); //괄호 0값 stack에 넣어서 구분
 				continue;
 			}
-			if(arr>='A' && arr<='Z') {  //피연산자 바로 sb에 저장 -피연산자 pop하는 시점만 계산하면 됨
+			if(arr>='A' && arr<='Z') {  //피연산자 바로 sb에 저장 -연산자 pop하는 시점만 계산하면 됨
 				sb.append(arr);
 			}else if(arr ==')'){
 	
@@ -40,7 +40,7 @@ public class Main_BOJ_1918_후위표기식_G3_양소정_76ms{
 					}
 			
 				} 
-				if(!st.isEmpty() && (arr=='*' || arr=='/')) { //연산자가 * 또는 /인 경우  -
+				if(!st.isEmpty() && (arr=='*' || arr=='/')) { //연산자가 * 또는 /인 경우  연속으로 나올때 고려
 					while(!st.isEmpty() &&st.peek()!='0' &&(st.peek()=='*' ||st.peek()=='/')) {
 						sb.append(st.pop());
 					}
@@ -50,6 +50,8 @@ public class Main_BOJ_1918_후위표기식_G3_양소정_76ms{
 			}
 			
 		}
+		
+		//남은것 전부 pop
 		while (!st.isEmpty()) {
 			sb.append(st.pop());
 		}
