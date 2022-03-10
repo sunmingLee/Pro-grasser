@@ -22,7 +22,7 @@ public class Main_BOJ_1918_후위표기식_G3_이승연_76ms {
 				while(stack.peek() != '(') {
 					sb.append(stack.pop());
 				}
-				stack.pop(); // ')' 빼기 
+				stack.pop(); // '(' 빼기 
 			}
 			else { // '+', '-', '*', '/'
 //				if(stack.isEmpty() || precedence(input[i]) > precedence(stack.peek())) {
