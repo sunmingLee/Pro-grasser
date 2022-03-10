@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_1967_트리의지름_G4_이승연_152ms_dfs {
+public class Main_BOJ_1967_트리의지름_G4_이승연_dfs_152ms {
 	static class Node{
 		int no; 
 		int weight;
