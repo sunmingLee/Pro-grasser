@@ -1,0 +1,73 @@
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+//메모리초과
+public class Main_BOJ_2206_벽부수고이동하기_G4_양소정_메모리초과{	
+
+	static class Node{
+		int x;
+		int y;
+		int cnt;
+		boolean ch; //벽 부실 수 있는 기회
+		
+		public Node(int x, int y, int cnt, boolean ch) {
+			super();
+			this.x = x;
+			this.y = y;
+			this.cnt = cnt;
+			this.ch = ch;
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N =Integer.parseInt(st.nextToken());// N(1 ≤ N ≤ 1,000)
+		int M =Integer.parseInt(st.nextToken());// M(1 ≤ M ≤ 1,000)
+		String str;
+		int dx[] = {0,0,1,-1};
+		int dy[] = {1,-1,0,0};
+		int map[][]= new int [N][M];
+		boolean v[][][]= new boolean [N][M][2]; //벽 부수고 큐에 넣은 것도 고려해야함.
+		for (int i = 0; i < N; i++) {
+			str =br.readLine();
+			for (int j = 0; j < M; j++) {
+				map[i][j]=str.charAt(j)-'0'; 
+			}
+		}
+		int xx=0;
+		int yy=0;
+		Queue<Node> q = new LinkedList<>();
+	    q.add(new Node(0, 0, 1,true));
+	    while(!q.isEmpty()) {
+	    	Node current =q.poll();
+	    	if(current.x==N-1 && current.y==M-1) {
+	    		System.out.println(current.cnt);
+	    		return;
+	    	}
+	    	for (int i = 0; i < 4; i++) {
+	    		xx = current.x+dx[i];
+	    		yy = current.y+dy[i];
+	    		if(xx<0||xx>=N || yy<0||yy>=N) continue;
+	    		if(map[xx][yy]==0 && !v[xx][yy][0]) { //벽이 아니고 방문하지 않았다면
+	    			v[xx][yy][0] =true;
+	    			q.add(new Node(xx, yy, current.cnt+1,current.ch));
+	    			if(!current.ch) v[xx][yy][1] =true; // 벽을 한번 부수고 방문한 경우
+	   
+	    		}else if( map[xx][yy]==0 && v[xx][yy][1] && current.ch) { //방문했지만 벽을 부쉬고 간 곳이고 내가 벽을 부쉴 기회가 있다면 큐에 추가.
+	    			q.add(new Node(xx, yy, current.cnt+1,current.ch));
+	    		}
+	    		else if(map[xx][yy]== 1 && current.ch ) {// 벽이고 벽을 부술 기회가 있다면	
+	    			v[xx][yy][1] =true;
+	    			q.add(new Node(xx, yy, current.cnt+1,false));
+	    		}
+			}	
+	    }
+		
+		System.out.println("-1");
+	}
+
+}
