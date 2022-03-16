@@ -1,10 +1,12 @@
+package class4;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Main_BOJ_2206_벽부수고이동하기_G4_696ms {
+public class Main_BOJ_2206_벽부수고이동하기_G4 {
 	public static class Loc{
 		int r;
 		int c; 
@@ -27,8 +29,8 @@ public class Main_BOJ_2206_벽부수고이동하기_G4_696ms {
 		int N = Integer.parseInt(str[0]); // 1<=N<=1000
 		int M = Integer.parseInt(str[1]); // 1<=M<=1000
 		
-		int[] dir_r = {-1, 0, 1, 0}; // 위로 가는거 빼는것도 괜찮을듯 
-		int[] dir_c = {0, 1, 0, -1}; // 위로 가는거 빼는것도 괜찮을듯 
+		int[] dir_r = {-1, 0, 1, 0}; 
+		int[] dir_c = {0, 1, 0, -1}; 
 		
 		char[][] map = new char[N+2][M+2];
 		boolean[][][] visited = new boolean[N+2][M+2][2];
