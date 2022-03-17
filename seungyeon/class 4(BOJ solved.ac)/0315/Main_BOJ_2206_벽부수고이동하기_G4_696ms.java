@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Main_BOJ_2206_벽부수고이동하기_G4 {
+public class Main_BOJ_2206_벽부수고이동하기_G4_696ms {
 	public static class Loc{
 		int r;
 		int c; 
