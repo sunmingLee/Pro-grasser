@@ -1,10 +1,11 @@
+package march0315;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+//메모리초과
 public class Main_BOJ_2206_벽부수고이동하기_G4_양소정_740ms{	
 
 	static class Node{
@@ -55,11 +56,11 @@ public class Main_BOJ_2206_벽부수고이동하기_G4_양소정_740ms{
 	    			if(map[xx][yy]=='0' &&!v[xx][yy][0] ) { //방문하지않았고 벽이 아니면
 	    				v[xx][yy][0] =true;
 	    				q.add(new Node(xx, yy, current.cnt+1,true));
+	    			
+	    			}else if (map[xx][yy]=='1') {//벽이면
+	    				v[xx][yy][1] =true;
+	    				q.add(new Node(xx, yy, current.cnt+1,false));
 	    			}
-//	    			}else if (map[xx][yy]=='1') {//벽이면
-//	    				v[xx][yy][1] =true;
-//	    				q.add(new Node(xx, yy, current.cnt+1,false)); //이것만 날리면 됨.
-//	    			} 
 	    		
 	    		}else if(!current.ch){ //벽을 부순 경우
 	    			if(map[xx][yy]=='0' &&!v[xx][yy][0] &&!v[xx][yy][1]) { //
