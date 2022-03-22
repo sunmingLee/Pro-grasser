@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Main_BOJ_2206_벽부수고이동하기_G4 {
+public class Main_BOJ_2206_벽부수고이동하기_G4_696ms {
 	public static class Loc{
 		int r;
 		int c; 
@@ -79,10 +79,10 @@ public class Main_BOJ_2206_벽부수고이동하기_G4 {
 				int nc = cur_loc.c + dir_c[d];
 			
 				if(map[nr][nc] == '0') {
-					if(!cur_loc.chance_used && !visited[nr][nc][0]) { // 벽 부순적이 있으면 
+					if(!cur_loc.chance_used && !visited[nr][nc][0]) { // 벽 부순적이 없으면 
 						queue.add(new Loc(nr, nc, cur_loc.distance+1, false));
 						visited[nr][nc][0] = true; 
-					} else if(cur_loc.chance_used && !visited[nr][nc][1]) { // 벽 부순적이 없으면 
+					} else if(cur_loc.chance_used && !visited[nr][nc][1]) { // 벽 부순적이 있으면 
 						queue.add(new Loc(nr, nc, cur_loc.distance+1, true));
 						visited[nr][nc][1] = true; 
  					}

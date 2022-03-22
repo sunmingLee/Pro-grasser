@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_2096_내려가기_B4_이승연_336ms {
+public class Main_BOJ_2096_내려가기_G4_이승연_336ms {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		

@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_2096_내려가기_B4_이승연_완탐_시간초과 {
+public class Main_BOJ_2096_내려가기_G4_이승연_완탐_시간초과 {
 	private static int max_result;
 	private static int min_result;
 
