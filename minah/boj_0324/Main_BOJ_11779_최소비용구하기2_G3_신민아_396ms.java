@@ -9,6 +9,8 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+// idea : 최단 길이가 갱신 될 때 경로도 갱신 되어야함!
+// idea : 이 때 시작점부터 시작하는 것 보단 갱신 될 때 도착점이 어디서부터 출발했는지를 체크하면 좋음 -> 경로를 stack을 이용하여 역추적을 해본다
 public class Main_BOJ_11779_최소비용구하기2_G3_신민아_396ms {
 	static class Node implements Comparable<Node>{
 		int end, weight;
@@ -59,23 +61,24 @@ public class Main_BOJ_11779_최소비용구하기2_G3_신민아_396ms {
 		// 역추적
 		Stack<Integer> reverseRoute = new Stack<Integer>();
 		while(true) {
-			reverseRoute.push(end);
-			end = routes[end];
-			if(end == start) {
-				reverseRoute.push(start);
-				break;
+			reverseRoute.push(end); // 역추적을 위해 end부터 넣어줌
+			end = routes[end]; // routes 배열엔 end로 가기위한 출발점이 있음 -> 역으로 따라감
+			if(end == start) { // end가 시작지점이랑 같아지면
+				reverseRoute.push(start); // 시작지점을 넣어주고
+				break; // 끝
 			}
 		}
 		
-		sb.append(reverseRoute.size()).append("\n");
+		sb.append(reverseRoute.size()).append("\n"); // 경로의 크기 출력
 		
 		while(reverseRoute.size() > 0) {
-			sb.append(reverseRoute.pop()).append(" ");
+			sb.append(reverseRoute.pop()).append(" "); // 경로가 역순으로 들어가있으므료 pop을 해서 stringbuilder에 붙여쥼
 		}
 		
 		System.out.print(sb.toString());
 	}
 	
+	// Dijkstra
 	static private int getLowestFee(int start, int end, List<Node>[] nodes, int[] routes) {
 		boolean[] visited = new boolean[nodes.length];
 		int[] distances = new int[nodes.length];
