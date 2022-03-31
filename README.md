@@ -50,3 +50,12 @@ ex) Create Main_BOJ_1000_A+B_B5_신민아_100ms.java / Update Main_BOJ_1000_A+B_
 ```
     
 </details>
+<details>
+<summary>Tier</summary>
+    <a href="https://solved.ac/minah741"><img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=minah741" width=300px/></a>
+    <a href="https://solved.ac/thwjd793"><img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=thwjd793" width=300px/></a>
+    <a href="https://solved.ac/sdyoon94"><img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=sdyoon94" width=300px/></a>
+    <a href="https://solved.ac/tjsals13"><img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=tjsals13" width=300px/></a>
+    <a href="https://solved.ac/seungyeon38"><img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=seungyeon38" width=300px/></a>
+    <a href="https://solved.ac/dlwotns1112"><img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=dlwotns1112" width=300px/></a>
+</details>
