@@ -12,7 +12,7 @@
 |Date|Problem 1|Problem 2|
 |----|--------|--------|
 |4/5(화)|[9095(1,2,3 더하기, S3)](https://www.acmicpc.net/problem/9095)|[11726(2xn 타일링, S3)](https://www.acmicpc.net/problem/11726)|
-|4/7(목)|[11726(2xn 타일링, S3)](https://www.acmicpc.net/problem/11727)|[2193(이친수, S3)](https://www.acmicpc.net/problem/2193)|
+|4/7(목)|[11727(2xn 타일링 2, S3)](https://www.acmicpc.net/problem/11727)|[2193(이친수, S3)](https://www.acmicpc.net/problem/2193)|
 |4/12(화)|[11052(카드 구매하기, S1)](https://www.acmicpc.net/problem/11052)|[11057(오르막수, S1)](https://www.acmicpc.net/problem/11057)|
 |4/14(목)|[2293(동전1, G5)](https://www.acmicpc.net/problem/2293)|[11055(가장 큰 증가 부분 수열, S2)](https://www.acmicpc.net/problem/11055)|
 |4/19(화)|[1699(제곱수의 합, S3)](https://www.acmicpc.net/problem/1699)|[11722(가장 긴 감소하는 부분 수열, S2)](https://www.acmicpc.net/problem/11722)|
