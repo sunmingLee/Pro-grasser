@@ -7,7 +7,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_SWEA_1953_탈주범검거_이선민_ms {
+public class Main_SWEA_1953_탈주범검거_이선민_138ms {
 	static class Pos {
 		int r, c;
 
