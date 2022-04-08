@@ -11,7 +11,6 @@ public class Main_BOJ_14890_경사로_G3_이선민_104ms {
 
 	private static int N;
 	private static boolean[][] slopes;
-	private static Stack<int[]> points;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,7 +26,6 @@ public class Main_BOJ_14890_경사로_G3_이선민_104ms {
 		}
 
 		slopes = new boolean[N][N]; // 경사로를 놓은곳은 true
-//		points = new Stack<int[]>(); // 경사로를 놓을 위치들
 		int ans = 0;
 		// 가로방향 확인
 		boolean flag = true;
@@ -35,7 +33,6 @@ public class Main_BOJ_14890_경사로_G3_이선민_104ms {
 			for (int j = 0; j < N; j++) {
 				if (j == N - 1) {
 					ans++;
-//					System.out.println("가로: " + i);
 					break;
 				}
 
@@ -70,7 +67,6 @@ public class Main_BOJ_14890_경사로_G3_이선민_104ms {
 
 		} // 가로 확인 끝
 
-//		System.out.println(ans);
 
 		// 세로방향 확인
 		flag = true;
@@ -81,7 +77,6 @@ public class Main_BOJ_14890_경사로_G3_이선민_104ms {
 			for (int i = 0; i < N; i++) {
 				if (i == N - 1) {
 					ans++;
-//					System.out.println("세로: " + j);
 					break;
 				}
 
