@@ -51,7 +51,7 @@ ex) Create Main_BOJ_1000_A+B_B5_신민아_100ms.java / Update Main_BOJ_1000_A+B_
 |3/17(목)|[2638(치즈, G4)](https://www.acmicpc.net/problem/2638)|~~[5639(이진검색트리, G5)](https://www.acmicpc.net/problem/5639)~~|~~[9465(스티커, S1)](https://www.acmicpc.net/problem/9465)~~|
 |3/22(화)|~~[9935(문자열 폭발, G4)](https://www.acmicpc.net/problem/9935)~~|[11404(플로이드, G4)](https://www.acmicpc.net/problem/11404)|~~[11660(구간합구하기5, S1)](https://www.acmicpc.net/problem/11660)~~|
 |3/24(목)|~~[11779(최소비용구하기2, G3)](https://www.acmicpc.net/problem/11779)~~|~~[12851(숨바꼭질2, G5)](https://www.acmicpc.net/problem/12851)~~|[13172(Σ, G5)](https://www.acmicpc.net/problem/13172)|
-|3/29(화)|~~[13549(숨바꼭질3, G5)](https://www.acmicpc.net/problem/13549)~~|[14502(연구소, G5)](https://www.acmicpc.net/problem/14502)|[14938(서강그라운드, G4)](https://www.acmicpc.net/problem/14938)|
+|3/29(화)|~~[13549(숨바꼭질3, G5)](https://www.acmicpc.net/problem/13549)~~|~~[14502(연구소, G5)](https://www.acmicpc.net/problem/14502)~~|~~[14938(서강그라운드, G4)](https://www.acmicpc.net/problem/14938)~~|
 |3/31(목)|[15686(치킨배달, G5)](https://www.acmicpc.net/problem/15686)|[17070(파이프옮기기1, G5)](https://www.acmicpc.net/problem/17070)|[17144(미세먼지안녕!, G4)](https://www.acmicpc.net/problem/17144)|
 * 못 푼 사람들이 많은 문제만 취소선이 없음(개인별로 상이할 수 있으니 체크 필요)
 </details>
