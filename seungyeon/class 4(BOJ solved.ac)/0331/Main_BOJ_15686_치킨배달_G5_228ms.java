@@ -1,12 +1,10 @@
-package class4;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Main_BOJ_15686_치킨배달_G5_276ms {
+public class Main_BOJ_15686_치킨배달_G5_228ms {
 	private static int total_distance;
 
 	public static void main(String[] args) throws IOException {
@@ -56,6 +54,7 @@ public class Main_BOJ_15686_치킨배달_G5_276ms {
 					}
 				}
 				distance += temp_distance;
+				if(total_distance<=distance) return; 
 			}
 			total_distance = Math.min(total_distance, distance);
 		}
