@@ -15,8 +15,8 @@
 |4/7(목)|[11727(2xn 타일링 2, S3)](https://www.acmicpc.net/problem/11727)|[2193(이친수, S3)](https://www.acmicpc.net/problem/2193)|
 |4/12(화)|[11052(카드 구매하기, S1)](https://www.acmicpc.net/problem/11052)|[11057(오르막수, S1)](https://www.acmicpc.net/problem/11057)|
 |4/14(목)|[2293(동전1, G5)](https://www.acmicpc.net/problem/2293)|[11055(가장 큰 증가 부분 수열, S2)](https://www.acmicpc.net/problem/11055)|
-|4/19(화)|[1699(제곱수의 합, S3)](https://www.acmicpc.net/problem/1699)|[11722(가장 긴 감소하는 부분 수열, S2)](https://www.acmicpc.net/problem/11722)|
-|4/21(목)|[2133(타일 채우기, G5)](https://www.acmicpc.net/problem/2133)|[1520(내리막길, G4)](https://www.acmicpc.net/problem/1520)|
+|4/19(화)|[1520(내리막길, G4)](https://www.acmicpc.net/problem/1520)|[11722(가장 긴 감소하는 부분 수열, S2)](https://www.acmicpc.net/problem/11722)|
+|4/21(목)|[2133(타일 채우기, G5)](https://www.acmicpc.net/problem/2133)|[1699(제곱수의 합, S3)](https://www.acmicpc.net/problem/1699)|
 |4/26(화)|[11048(이동하기, S1)](https://www.acmicpc.net/problem/11048)|[2294(동전2, S1)](https://www.acmicpc.net/problem/2294)|
 |4/28(목)|[2225(합분해, G5)](https://www.acmicpc.net/problem/2225)|[1309(동물원, S1)](https://www.acmicpc.net/problem/1309)|
 
@@ -51,7 +51,7 @@ ex) Create Main_BOJ_1000_A+B_B5_신민아_100ms.java / Update Main_BOJ_1000_A+B_
 |3/17(목)|[2638(치즈, G4)](https://www.acmicpc.net/problem/2638)|~~[5639(이진검색트리, G5)](https://www.acmicpc.net/problem/5639)~~|~~[9465(스티커, S1)](https://www.acmicpc.net/problem/9465)~~|
 |3/22(화)|~~[9935(문자열 폭발, G4)](https://www.acmicpc.net/problem/9935)~~|[11404(플로이드, G4)](https://www.acmicpc.net/problem/11404)|~~[11660(구간합구하기5, S1)](https://www.acmicpc.net/problem/11660)~~|
 |3/24(목)|~~[11779(최소비용구하기2, G3)](https://www.acmicpc.net/problem/11779)~~|~~[12851(숨바꼭질2, G5)](https://www.acmicpc.net/problem/12851)~~|[13172(Σ, G5)](https://www.acmicpc.net/problem/13172)|
-|3/29(화)|[13549(숨바꼭질3, G5)](https://www.acmicpc.net/problem/13549)|[14502(연구소, G5)](https://www.acmicpc.net/problem/14502)|[14938(서강그라운드, G4)](https://www.acmicpc.net/problem/14938)|
+|3/29(화)|~~[13549(숨바꼭질3, G5)](https://www.acmicpc.net/problem/13549)~~|~~[14502(연구소, G5)](https://www.acmicpc.net/problem/14502)~~|~~[14938(서강그라운드, G4)](https://www.acmicpc.net/problem/14938)~~|
 |3/31(목)|[15686(치킨배달, G5)](https://www.acmicpc.net/problem/15686)|[17070(파이프옮기기1, G5)](https://www.acmicpc.net/problem/17070)|[17144(미세먼지안녕!, G4)](https://www.acmicpc.net/problem/17144)|
 * 못 푼 사람들이 많은 문제만 취소선이 없음(개인별로 상이할 수 있으니 체크 필요)
 </details>
