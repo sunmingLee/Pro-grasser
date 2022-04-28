@@ -5,7 +5,7 @@
 
 ## Basic Rules
 - **화, 목 9시 meeting!**
-- BOJ solved.ac 기준 class 4에 있는 문제 중 Schedules에 적힌 문제를 푼다
+- BOJ solved.ac 기준 Class 5에 있는 문제 중 Schedules에 적힌 문제를 푼다 ~~(실화?)~~
 
 ## Schedules in May 🎈  
 
